@@ -4,6 +4,7 @@ const expressLayouts=require('express-ejs-layouts');
 const db=require('./config/mongoose');
 
 const app=express();
+app.use(express.urlencoded());
 app.use(express.static('./assets'));
 app.use(expressLayouts);
 app.set("layout extractStyles", true)
