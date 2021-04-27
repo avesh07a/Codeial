@@ -1,3 +1,19 @@
 <h1>
         This is my Homepages
 </h1>
+<section id="post">
+
+        <% if(locals.user) {%>
+        <form action="/post/create" method="post">
+                <textarea name="content" id="" cols="30" rows="3">
+
+                </textarea>
+                <input type="submit" value="Post">
+        </form><%}%>
+</section>
+
+  <% for(let i of posts){%>
+        
+        <p><%= i.content %>
+        <br><%= i.user.name%></p>   
+   <%}%>
