@@ -1,6 +1,23 @@
+const post=require('../models/post');
+
 module.exports.home=function(req,res){
 
-    return res.render('home',{
-        title:'home'
+    // post.find({},function(err,post)
+    // {
+    //     if(err){console.log('could not find');return;}
+    //     return res.render('home',{
+    //     title:'home',
+    //     posts:post
+    // })
+    // })
+
+    post.find({}).populate('user').exec(function(err,post){
+        if(err){console.log('could not find');return;}
+        return res.render('home',{
+        title:'home',
+        posts:post
     })
+    })
+
+    
 }
