@@ -9,10 +9,11 @@ module.exports.profile=function(req,res){
 
 module.exports.SignUp=function(req,res)
 {
-    if(req.isAuthenticated)
-    {
-        return res.redirect('/users/profile');
-    }
+    console.log('hii');
+    // if(req.isAuthenticated)
+    // {
+    //     return res.redirect('/users/profile');
+    // }
     return res.render('signUp',{
         title:'Sign Up'
     })

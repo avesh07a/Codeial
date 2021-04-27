@@ -1,18 +1,28 @@
-<header>
-    I m header
-</header>
+
+
+<div id="navbar">
+
+    <div id="logo">
+        Codeial
+    </div>
 
 <% if(locals.user){ %>
 
-        <p><a href="/users/profile"><%= user.name%></a></p>
-        <p>  <a href="/users/signout"> Sign-out </a> </p>
+    <div class='left'>
+        <a href="/users/profile"><%= user.name%></a>
+         <a href="/users/signout"> Sign-out </a> 
+    </div>
 
 <% }else{ %>  
-    
-        <p>
+    <div class='left'>
+        
             <a href="/users/signup">Sign-Up</a>
-        </p>  
-        <p>
+        
+       
             <a href="/users/signin">Sign-in</a>
-        </p>
+        
+    </div>
+
+        
     <%}%>
+</div>
