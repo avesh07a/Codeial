@@ -13,6 +13,10 @@
 </section>
   <ul>
   <% for(let i of posts){%>
+
+     <%   if(locals.user && locals.user.id==i.user.id){%>
+        <a href="/post/destroy/<%= i. id %>">X</a>
+        <%}%>
         
         <p><li><%= i.content %></li>
         <br><li><%= i.user.name%></li></p> 
@@ -39,6 +43,9 @@
                                         <small>
                                                 <%= comment.user.name %>
                                         </small>
+                                        <%   if(locals.user && locals.user.id==i.user.id){%>
+                                                <a href="/comments/destroy/<%= comment. id %>">X</a>
+                                                <%}%>
                                 </p>
                                 
                                 <%}%>
