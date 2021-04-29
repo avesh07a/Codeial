@@ -1,6 +1,5 @@
 const mongoose=require('mongoose');
-
-const PostSchema=new mongoose.Schema({
+const CommentSchema=new mongoose.Schema({
     content:{
         type:String,
         required:true
@@ -9,17 +8,15 @@ const PostSchema=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
-    comments:[
-        {
+    post:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Comment'   
-        }
-            ]
-    
+        ref:'Post'
+    }
 },
 {
+
     timestamps:true
 })
 
-const Post=mongoose.model('Post',PostSchema);
-module.exports=Post;
+const Comment=mongoose.model('Comment',CommentSchema);
+module.exports=Comment;
