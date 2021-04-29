@@ -6,6 +6,8 @@ const homecntroller=require('../controllers/home_controller');
 router.get('/',homecntroller.home);
 router.use('/users',require('./users'));
 router.use('/post',require('./post'));
+router.use('/comments',require('./Comments'));
+
 
 
 
