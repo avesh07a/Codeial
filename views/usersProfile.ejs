@@ -3,10 +3,23 @@
     This is my Profile Page
 </h1>
 
-<p>
-    <%= user.name %>
+
+
+<% if(user.id==user_profile.id){%>
+    
+    <form action="/users/update/<%= user_profile.id %>" method="post">
+    <input type="text" name="name" placeholder="Your Name" value="<%= user_profile.name%>"   required>
+    <input type="email" name="email" placeholder="Your Email" value="<%= user_profile.email%>" required>
+    <input type="submit" value="Update"> 
+    </form>
+    
+<%}else{%>
+    <p>
+    <%= user_profile.name %>
 
 </p>
 <p>
-    <%= user.email %>
+    <%= user_profile.email %>
 </p>
+    
+<%}%>

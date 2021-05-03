@@ -9,7 +9,7 @@
 <% if(locals.user){ %>
 
     <div class='left'>
-        <a href="/users/profile"><%= user.name%></a>
+        <a href="/users/profile/<%= user.id %>"><%= user.name%></a>
          <a href="/users/signout"> Sign-out </a> 
     </div>
 

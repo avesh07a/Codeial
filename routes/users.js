@@ -7,7 +7,7 @@ const router=express.Router();
 const users_contrllers=require('../controllers/users_controllers');
 
 
-router.get('/profile',passport.checkAuthentication,users_contrllers.profile);
+router.get('/profile/:id',passport.checkAuthentication,users_contrllers.profile);
 router.get('/signup',users_contrllers.SignUp);
 router.get('/signin',users_contrllers.SignIn);
 router.post('/createUser',users_contrllers.createUser);
@@ -16,7 +16,7 @@ router.post('/createSession',passport.authenticate(
     {failureRedirect:'/users/signin'},
 
 ),users_contrllers.createSession);
-
+router.post('/update/:id',users_contrllers.update);
 router.get('/signout',users_contrllers.destroySession);
 
 
