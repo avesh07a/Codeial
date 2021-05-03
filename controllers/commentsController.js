@@ -17,6 +17,7 @@ module.exports.create=function(req,res)
 
                     post.comments.push(comment);
                     post.save();
+                    req.flash('success','Commented Successfully');
 
                     res.redirect('/');
                 });
@@ -34,12 +35,14 @@ module.exports.destroy=function(req,res)
             comment.remove();
 
             Post.findByIdAndUpdate(postid,{ $pull: {comments:req.params.id}},function(err,post){
+                req.flash('success','Comment Deleted Successfully');
                 return res.redirect('back');
             })
         }
         else
         {
             return res.redirect('back');
+
         }
     })
 }
