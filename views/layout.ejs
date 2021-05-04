@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <%- style %>
 </head>
 <body>
     
@@ -18,6 +19,7 @@
     <%- body %>
 
     <%- include('_footer') %>
+    <%-script %>
 
     <script>
 
@@ -27,7 +29,9 @@
                     text: "<%= flash.success %>",
                     type: 'success',
                     layout: 'topRight',
-                    timeout: 1500
+                    timeout: 1500,
+        
+    
                   
                     
                 }).show();    
