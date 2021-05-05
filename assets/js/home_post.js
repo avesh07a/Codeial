@@ -11,10 +11,11 @@
                 url: '/post/create',
                 data: newPostForm.serialize(),
                 success: function(data){
-                    console.log(data.data.post);
+                    
                     let newPost = newPostDom(data.data.post);
-                    console.log(newPost);
+                    
                     $('#post-list-container>ul').prepend(newPost);
+                    deletePost($(' .delete-post-button'),newPost);
                 }, error: function(error){
                     console.log(error.responseText);
                 }
@@ -56,6 +57,27 @@
            
       </li>     `)
     }
+
+    //method to delete post from dom
+    let deletePost=function(deleteLink)
+    {
+        $(deleteLink).click(function(e){
+            e.preventDefault();
+            $.ajax({
+                  type:'get',
+                  url:$(deleteLink).prop('href'),
+                  success:function(data)
+                  {
+                      console.log(data);
+                      console.log(`#post-${data.data.post_id}`);
+                         $(`#post-${data.data.post_id}`).remove();
+                  },error:function(error)
+                  {
+                      console.log(error);
+                  }
+            });
+        })
+    }    
 
 
     createPost();
