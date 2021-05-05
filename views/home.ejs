@@ -3,15 +3,19 @@
 <section id="feed-posts">
   <h4>Posts</h4>
         <% if(locals.user) {%>
-        <form action="/post/create" method="post">
+        <form action="/post/create" id="new-post-form" method="post">
                 <textarea name="content" id="" cols="30" rows="3">
 
                 </textarea>
                 <input type="submit" value="Post">
         </form><%}%>
-        <div>
+        <div id="post-list-container">
            <ul>
-               <%- include('_post')%>
+           
+               <%- include('_post') -%>
+               
+
+
            </ul>
         </div>
 </section>
@@ -31,3 +35,5 @@
 </section>
 
 </div>
+
+<script src="/js/home_post.js"></script>

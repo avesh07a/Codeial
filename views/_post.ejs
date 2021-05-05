@@ -1,11 +1,13 @@
-<% for(let i of posts){%>
 
+
+<% for(let i of posts){%>
+<li id="post-<%= i._id%>">
     <%   if(locals.user && locals.user.id==i.user.id){%>
-       <a href="/post/destroy/<%= i. id %>">X</a>
+       <a class="delete-post-button" href="/post/destroy/<%= i. id %>">X</a>
        <%}%>
        
-       <p><li><%= i.content %></li>
-       <br><li><%= i.user.name%></li></p> 
+       <p><%= i.content %>
+       <br><%= i.user.name%></p> 
        
 
        <div class="post-comments">
@@ -32,5 +34,7 @@
     
     </div>
        
-       
+  </li>     
+
+
   <%}%>
