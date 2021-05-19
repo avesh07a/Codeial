@@ -21,7 +21,7 @@ let posts=await post.find({}).sort('-createdAt').populate('user').populate({
         }
     });
 
-    let users=await user.find({}); 
+    let users=await user.find({}).sort('-createdAt'); 
     
      return res.render('home',{
         title:'home',
