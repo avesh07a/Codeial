@@ -14,8 +14,8 @@ module.exports.create=function(req,res)
                     user:req.user._id
                 },function(err,comment){
                     if(err){console.log(err);return;}
-
                     post.comments.push(comment);
+                    
                     post.save();
                     req.flash('success','Commented Successfully');
 

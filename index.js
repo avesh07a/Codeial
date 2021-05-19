@@ -17,6 +17,7 @@ const Mware=require('./config/middleware');
 
 
 const app=express();
+app.use('/uploads',express.static(__dirname + '/uploads'));
 app.use(sassMiddleware({
     src:'./assets/scss',
     dest:'./assets/css',
